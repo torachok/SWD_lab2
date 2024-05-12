@@ -5,34 +5,35 @@
 #include "Cpp/ClassUnit.h"
 #include "Cpp/MethodUnit.h"
 #include "Cpp/PrintOperatorUnit.h"
+#include "AbstractFactory.h"
+#include "Cpp/CppFactory.h"
 
-std::string generateProgram() {
-    ClassUnit myClass( "MyClass" );
-    myClass.add(
-        std::make_shared< MethodUnit >( "testFunc1", "void", 0 ),
-        ClassUnit::PUBLIC
+std::string generateProgram(std::shared_ptr<AbstractFactory> & factory) {
+    auto myClass = factory->createClass("MyClass");
+    myClass->add(
+        factory->createMethod( "testFunc1", "void", 0 ),
+        AbstractClass::PUBLIC
         );
-    myClass.add(
-        std::make_shared< MethodUnit >( "testFunc2", "void", MethodUnit::STATIC ),
-        ClassUnit::PRIVATE
+    myClass->add(
+        factory->createMethod( "testFunc2", "void", AbstractMethod::STATIC ),
+        AbstractClass::PRIVATE
         );
-    myClass.add(
-        std::make_shared< MethodUnit >( "testFunc3", "void", MethodUnit::VIRTUAL |
-                                                              MethodUnit::CONST ),
-        ClassUnit::PUBLIC
+    myClass->add(
+        factory->createMethod( "testFunc3", "void", AbstractMethod::VIRTUAL | AbstractMethod::CONST ),
+        AbstractClass::PUBLIC
         );
-    auto method = std::make_shared< MethodUnit >( "testFunc4", "void",
-                                               MethodUnit::STATIC );
-    method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
-    myClass.add( method, ClassUnit::PROTECTED );
-    return myClass.compile();
+    auto method = factory->createMethod( "testFunc4", "void", AbstractMethod::STATIC );
+    method->add( factory->createPrintOperator( R"(Hello, world!\n)" ) );
+    myClass->add( method, AbstractClass::PROTECTED );
+    return myClass->compile();
 }
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    std::cout << generateProgram() << std::endl;
+    std::shared_ptr<AbstractFactory> factory = std::make_shared<CppFactory>();
+    std::cout << generateProgram(factory) << std::endl;
 
     return a.exec();
 }

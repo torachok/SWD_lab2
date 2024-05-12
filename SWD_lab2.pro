@@ -1,4 +1,4 @@
-QT = core
+SQT = core
 
 CONFIG += c++17 cmdline
 
@@ -8,9 +8,11 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         AbstractClass.cpp \
+        AbstractFactory.cpp \
         AbstractMethod.cpp \
         AbstractPrintOperator.cpp \
         Cpp/ClassUnit.cpp \
+        Cpp/CppFactory.cpp \
         Cpp/MethodUnit.cpp \
         Cpp/PrintOperatorUnit.cpp \
         Unit.cpp \
@@ -23,9 +25,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     AbstractClass.h \
+    AbstractFactory.h \
     AbstractMethod.h \
     AbstractPrintOperator.h \
     Cpp/ClassUnit.h \
+    Cpp/CppFactory.h \
     Cpp/MethodUnit.h \
     Cpp/PrintOperatorUnit.h \
     Unit.h
