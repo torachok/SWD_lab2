@@ -2,6 +2,7 @@
 #define PRINTOPERATORUNIT_H
 
 #include "AbstractPrintOperator.h"
+#include <QObject>
 
 class PrintOperatorUnit : public AbstractPrintOperator {
 public:

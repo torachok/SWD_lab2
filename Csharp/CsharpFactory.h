@@ -1,12 +1,12 @@
-#ifndef CPPFACTORY_H
-#define CPPFACTORY_H
+#ifndef CSHARPFACTORY_H
+#define CSHARPFACTORY_H
 
 #include "AbstractFactory.h"
-#include "ClassUnit.h"
-#include "MethodUnit.h"
-#include "PrintOperatorUnit.h"
+#include "CsharpClassUnit.h"
+#include "CsharpMethodUnit.h"
+#include "CsharpPrintOperatorUnit.h"
 
-class CppFactory : public AbstractFactory
+class CsharpFactory : public AbstractFactory
 {
 public:
     std::shared_ptr<AbstractClass> createClass(const std::string &name);
@@ -14,4 +14,4 @@ public:
     std::shared_ptr<AbstractPrintOperator> createPrintOperator(const std::string &text);
 };
 
-#endif // CPPFACTORY_H
+#endif // CSHARPFACTORY_H

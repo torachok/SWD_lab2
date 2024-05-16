@@ -15,6 +15,10 @@ SOURCES += \
         Cpp/CppFactory.cpp \
         Cpp/MethodUnit.cpp \
         Cpp/PrintOperatorUnit.cpp \
+        Csharp/CsharpClassUnit.cpp \
+        Csharp/CsharpFactory.cpp \
+        Csharp/CsharpMethodUnit.cpp \
+        Csharp/CsharpPrintOperatorUnit.cpp \
         Unit.cpp \
         main.cpp
 
@@ -32,4 +36,8 @@ HEADERS += \
     Cpp/CppFactory.h \
     Cpp/MethodUnit.h \
     Cpp/PrintOperatorUnit.h \
+    Csharp/CsharpClassUnit.h \
+    Csharp/CsharpFactory.h \
+    Csharp/CsharpMethodUnit.h \
+    Csharp/CsharpPrintOperatorUnit.h \
     Unit.h

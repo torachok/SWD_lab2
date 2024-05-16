@@ -13,7 +13,11 @@ public:
     enum AccessModifier {
         PUBLIC,
         PROTECTED,
-        PRIVATE
+        PRIVATE,
+        PRIVATE_PROTECTED,
+        FILE,
+        INTERNAL,
+        PROTECTED_INTERNAL
     };
     AbstractClass(const std::string&);
 };
