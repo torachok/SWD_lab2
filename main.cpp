@@ -8,6 +8,7 @@
 #include "AbstractFactory.h"
 #include "Cpp/CppFactory.h"
 #include "Csharp/CsharpFactory.h"
+#include "Java/JavaFactory.h"
 
 std::string generateProgram(std::shared_ptr<AbstractFactory> & factory) {
     auto myClass = factory->createClass("MyClass");
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    std::shared_ptr<AbstractFactory> factory = std::make_shared<CsharpFactory>();
+    std::shared_ptr<AbstractFactory> factory = std::make_shared<JavaFactory>();
     std::cout << generateProgram(factory) << std::endl;
 
     return a.exec();
